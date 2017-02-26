@@ -8,13 +8,13 @@ app.config(function ($routeProvider) {
         templateUrl: 'partials/main.html',
         controller: 'mainCtrl'
     })
-    .when('/lets_play', {
-        templateUrl: 'partials/play.html',
-        controller: 'gamesCtrl'
+    .when('/bids', {
+        templateUrl: 'partials/bids.html',
+        controller: 'bidsCtrl'
     })
-    .when('/new_question', {
-        templateUrl: 'partials/newquestion.html',
-        controller: 'questionsCtrl'
+    .when('/result', {
+        templateUrl: 'partials/result.html',
+        controller: 'bidsCtrl'
     })
     .otherwise({
         redirectTo: '/'

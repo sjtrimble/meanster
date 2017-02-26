@@ -1,16 +1,23 @@
-var games = require('../controllers/games.js');
-var questions = require('../controllers/questions.js');
-
+var bids = require('../controllers/bids.js');
 
 module.exports = function(app) {
     console.log("routes loading");
 
-    app.post('/new_question/add', questions.create)
+    app.post('/newbid', bids.create)
 
-    app.get('/questions', questions.index)
+    app.get('/getbids', bids.index)
 
-    app.get('/games', games.index)
+    app.delete('/destroybids', bids.destroy)
 
-    app.post('/game', games.create)
+
+    // OLD TO DELETE
+
+    app.post('/new_question/add', bids.index)
+
+    app.get('/questions', bids.index)
+
+    app.get('/games', bids.index)
+
+    app.post('/game', bids.index)
 
 }

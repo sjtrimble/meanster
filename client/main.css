@@ -22,23 +22,28 @@ body {
     height: 100%;
 }
 
+.bidsSection {
+    display: flex;
+}
+
+.bidBox {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.bidBox img {
+    height: 100px;
+    width: 100px;
+}
+
 .sideContent {
     display: flex;
     flex-direction: column;
     width: 30%;
 }
 
-.playPrompt {
-    display: flex;
-    flex-flow: column;
-    width: 50%;
-    margin: auto;
-    background-color:#e3e3e3;
-    padding: 20px;
-    align-items: center;
-}
-
-.errorMessage {
+.errorMessages {
     color: red;
     font-weight: bold;
 }
@@ -74,6 +79,20 @@ button a:link, a:visited {
     color: white;
 }
 
+.bidBox .bidInput {
+    width: 100px;
+}
+
+.currentBids {
+    width: 250px;;
+    height: 200px;
+    border: 1px solid #AAA;
+    border-radius: 5px;
+    padding: 5px; 
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
 input[type="text"] {
     border-radius: 5px;
     padding: 10px;
@@ -97,7 +116,7 @@ textarea {
 #header-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 32px;
     padding: 5px;
     background-color: #0080ff;

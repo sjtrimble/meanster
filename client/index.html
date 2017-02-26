@@ -5,25 +5,18 @@
         <script src="angular/angular.js"></script>
         <script src="angular-route/angular-route.js"></script>
         <script src="./assets/app.js"></script>
-        <script src="/assets/factories/QuestionsFactory.js"></script>
-        <script src="/assets/factories/GamesFactory.js"></script>
-        <script src="/assets/factories/UsersFactory.js"></script>
         <script src="./assets/controllers/mainCtrl.js"></script>
+        <script src="/assets/controllers/bidsCtrl.js"></script>
+        <script src="/assets/controllers/resultsCtrl.js"></script>
+        <script src="/assets/factories/BidsFactory.js"></script>
+        <script src="/assets/factories/UsersFactory.js"></script>
+        
+        <script src="/assets/factories/GamesFactory.js"></script>
         <script src="./assets/controllers/gamesCtrl.js"></script>
         <script src="./assets/controllers/questionsCtrl.js"></script>
     </head>
 
     <body ng-app="app">
-            <div id="header-bar">
-                <ul>
-                    <li><a href="#!/main">Home</a></li>
-                    <li><a href="#!/new_question">Add a Question</a></li>
-                </ul>
-                <ul ng-controller="mainCtrl">
-                    <li><a href="" ng-if="!user.userLoggedIn" ng-click="user.login()">Login</a></li>
-                    <li><a href="" ng-if="user.userLoggedIn" ng-click="logoutUser()">Logout</a></li>
-                </ul>
-            </div>
             <div class="fullContainer">
                 <div ng-view=""></div>
             </div>
