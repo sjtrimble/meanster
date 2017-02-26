@@ -1,0 +1,148 @@
+body {
+    margin: 0px;
+}
+
+.fullContainer {
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.container {
+    display: flex;
+}
+
+.mainContent {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    background-color: #e3e3e3;
+    width: 70%;
+    height: 100%;
+}
+
+.sideContent {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.playPrompt {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    margin: auto;
+    background-color:#e3e3e3;
+    padding: 20px;
+    align-items: center;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}
+
+.filter {
+    margin-bottom: 64px;
+}
+
+select {
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    width: 300px;
+    height: 32px;
+}
+
+button, input[type="submit"] {
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0080ff;
+    color: white;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+button a:link, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+input[type="text"] {
+    border-radius: 5px;
+    padding: 10px;
+    border-style: none;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: 16px;
+    width: 250px;
+}
+
+textarea {
+    border-radius: 5px;
+    padding: 10px;
+    border-style: none;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: 16px;
+    width: 250px;
+}
+
+#header-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 32px;
+    padding: 5px;
+    background-color: #0080ff;
+    align-items: center;
+    margin: 0px;
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+#header-bar > ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 10px;
+}
+
+#header-bar > ul > li {
+    display: inline;
+    margin-left: 32px;
+}
+
+#header-bar > ul > li > a:link, #header-bar > ul > li > a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+#header-bar > ul > li > a:hover {
+    color: white;
+    opacity: 0.50;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+table th {
+    text-align: left;
+}
+
+.questionBox {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #AAA;
+    margin-bottom: 10px;
+}

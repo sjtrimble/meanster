@@ -1,0 +1,26 @@
+<div ng-if="messages" class="messages">
+    <div>
+        <p ng-bind="messages"></p>
+    </div>
+</div>
+
+<div class="playPrompt">
+    <button style="width: 100px;"><a href="#!/lets_play">Play</a></button>
+    <p>Click the button above to start the trivia game.</p>
+</div>
+
+<div>
+    <p>Search: <input type="text" ng-model="searchText"></p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Percentage</th>
+        </tr>
+        <tr ng-repeat="game in games | filter: searchText">
+            <td ng-bind="game.player"></td>
+            <td ng-bind="game.score"></td>
+            <td ng-bind="game.percentage + '%'"></td>
+        </tr>
+    </table>
+</div>
