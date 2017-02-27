@@ -16,9 +16,12 @@ app.controller('bidsCtrl', function($scope, UsersFactory, BidsFactory, $routePar
 			$scope.user.userLoggedIn = user;
 		});
 	};
-    loginUser();
 
     $scope.user = UsersFactory
+
+    if (!$scope.user.userLoggedIn) {
+        $location.url('/main');
+    }
 
     var updateBids = function () {
         BidsFactory.index(function(data) {
@@ -41,8 +44,9 @@ app.controller('bidsCtrl', function($scope, UsersFactory, BidsFactory, $routePar
     updateBids();
 
     $scope.makeBid = function(product, newBid) {
-        // console.log("just product: ", product)
-        // console.log("just newBid: ", newBid)
+
+        product.error = []
+        // console.log(product.error)
 
         if (product.bids.length == 0 || product.bidAmount > product.bids[product.bids.length-1].amount) {
 
@@ -57,11 +61,15 @@ app.controller('bidsCtrl', function($scope, UsersFactory, BidsFactory, $routePar
             product.bids.push($scope.newBid);
             product.bidAmount = undefined;
             updateBids();
-        } else {
+        } else if (product.bids.length == 0 || product.bidAmount < product.bids[product.bids.length-1].amount){
             product.error = "Bid amount should be higher than the previous bid."
-            // $scope.product.error.push();
-            // console.log($scope.errorMessages);
-        };
+            product.bidAmount = undefined;
+            console.log("after - bid amount too low", product.error)
+
+        } else if (product.bidAmount == "" || product.bidAmount == undefined) {
+            product.error = "Please enter a bid amount to submit a bid."
+            product.bidAmount = undefined;
+        }
     };
 
     $scope.endBid = function() {

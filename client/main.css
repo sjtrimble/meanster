@@ -5,8 +5,10 @@ body {
 .fullContainer {
     font-family: sans-serif;
     font-size: 16px;
-    padding: 20px;
-    margin: 10px;
+}
+
+h2, h3 {
+    margin: 10px; 
 }
 
 .container {
@@ -16,10 +18,7 @@ body {
 .mainContent {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 20px;
-    background-color: #e3e3e3;
-    width: 70%;
-    height: 100%;
+    padding: 10px;
 }
 
 .bidsSection {
@@ -30,22 +29,18 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
+    align-items: center;
 }
 
 .winningBidInfo {
     display: flex;
-    padding: 10px;
+    margin-right: 10px;
 }
 
 img {
     height: 100px;
     width: 100px;
-}
-
-.sideContent {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
+    border-radius: 5px;
 }
 
 .errorMessage {
@@ -55,17 +50,6 @@ img {
 
 .filter {
     margin-bottom: 64px;
-}
-
-select {
-    border: 1px solid #AAA;
-    color: #555;
-    font-size: inherit;
-    overflow: hidden;
-    padding: 5px 10px;
-    text-overflow: ellipsis;
-    width: 300px;
-    height: 32px;
 }
 
 button, input[type="submit"] {
@@ -99,16 +83,6 @@ button a:link, a:visited {
 }
 
 input[type="text"] {
-    border-radius: 5px;
-    padding: 10px;
-    border-style: none;
-    border: 1px solid #AAA;
-    color: #555;
-    font-size: 16px;
-    width: 250px;
-}
-
-textarea {
     border-radius: 5px;
     padding: 10px;
     border-style: none;
@@ -152,21 +126,4 @@ textarea {
     color: white;
     opacity: 0.50;
     text-decoration: none;
-}
-
-table {
-    width: 100%;
-    margin-top: 20px;
-    text-align: left;
-}
-
-table th {
-    text-align: left;
-}
-
-.questionBox {
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #AAA;
-    margin-bottom: 10px;
 }

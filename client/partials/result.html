@@ -1,7 +1,7 @@
 <div id="header-bar">
     <ul>
         <li><a href="" ng-if="!user.userLoggedIn" ng-click="user.login()">Login</a></li>
-        <li><a href="" ng-if="user.userLoggedIn" ng-click="logoutUser()">Logout</a></li>
+        <li><a href="" ng-if="user.userLoggedIn" ng-click="user.logout()">Logout</a></li>
     </ul>
 </div>
 
@@ -9,10 +9,10 @@
 
 <div ng-if="user.userLoggedIn">
     <h2><span ng-bind="user.userLoggedIn"></span> ended the Bid.</h2>
-    <p>Highest Bidder per Product:</p>
-        <div class="container">
+    <p style="margin: 10px;">Highest Bidder per Product:</p>
+        <div class="mainContent">
             <div class="winningBidInfo" ng-repeat="product in products">
-                <img style="margin-right: 10px;" src="{{product.imageUrl}}">
+                <img style="margin: 10px;" src="{{product.imageUrl}}">
                 <div>
                     <p>{{product.bids[product.bids.length-1].bidder}}</p>
                     <p>${{product.bids[product.bids.length-1].amount}}</p>

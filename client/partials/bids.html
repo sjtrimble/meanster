@@ -11,12 +11,13 @@
     <h2>Bid Now!</h2>
     <div class="bidsSection">
         <div class="bidBox" ng-repeat="product in products">
+            <h3>{{product.name}}</h3>
             <img src="{{product.imageUrl}}">
             <p><input class="bidInput" type="text" placeholder="Enter bid" ng-model="product.bidAmount"> <input type="submit" ng-click="makeBid(product, newBid)"></p>
 
             <div class="errorMessage" ng-if="product.error.length > 0"><p ng-bind="product.error"></p></div>
 
-            <p>Current Bids:</p>
+            <p style="font-weight: bold;">Current Bids:</p>
             <div class="currentBids">
                 <p ng-repeat="bid in product.bids | filter: searchText">{{bid.bidder}}: {{bid.amount}}</p>
             </div>
