@@ -9,15 +9,4 @@ module.exports = function(app) {
 
     app.delete('/destroybids', bids.destroy)
 
-
-    // OLD TO DELETE
-
-    app.post('/new_question/add', bids.index)
-
-    app.get('/questions', bids.index)
-
-    app.get('/games', bids.index)
-
-    app.post('/game', bids.index)
-
 }

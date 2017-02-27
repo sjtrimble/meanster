@@ -25,7 +25,7 @@ app.factory('BidsFactory', ['$http', function($http) {
 
     factory.destroyBids = function() {
         $http.delete('/destroybids')
-        .thn(function(res) {
+        .then(function(res) {
             if (typeof(callback) === 'function') {
                 callback(res.data);
                 console.log("delete callback on server side")

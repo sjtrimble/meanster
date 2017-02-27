@@ -1,4 +1,4 @@
-app.factory('UsersFactory', ['$http', function($http) {
+app.factory('UsersFactory', ['$http', '$location', function($http, $location) {
 
     var factory = {};
     factory.userLoggedIn = false;
@@ -16,6 +16,7 @@ app.factory('UsersFactory', ['$http', function($http) {
 
 	factory.logout = function(){
 		factory.userLoggedIn = false;
+		$location.url('/main');
 	}
 
     return factory;

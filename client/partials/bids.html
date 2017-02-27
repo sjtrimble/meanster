@@ -1,7 +1,7 @@
 <div id="header-bar">
     <ul>
         <li><a href="" ng-if="!user.userLoggedIn" ng-click="user.login()">Login</a></li>
-        <li><a href="" ng-if="user.userLoggedIn" ng-click="logoutUser()">Logout</a></li>
+        <li><a href="" ng-if="user.userLoggedIn" ng-click="user.logout()">Logout</a></li>
     </ul>
 </div>
 
@@ -14,6 +14,8 @@
             <img src="{{product.imageUrl}}">
             <p><input class="bidInput" type="text" placeholder="Enter bid" ng-model="product.bidAmount"> <input type="submit" ng-click="makeBid(product, newBid)"></p>
 
+            <div class="errorMessage" ng-if="product.error.length > 0"><p ng-bind="product.error"></p></div>
+
             <p>Current Bids:</p>
             <div class="currentBids">
                 <p ng-repeat="bid in product.bids | filter: searchText">{{bid.bidder}}: {{bid.amount}}</p>
@@ -21,7 +23,6 @@
             <input type="text" ng-model="searchText"placeholder="Search">
         </div>
     </div>
-    <div ng-if="errorMessages"><p ng-model="error in errorMessages"></p></div>
     <div style="display: flex; justify-content: flex-end;">
         <button ng-click="endBid()">End Bid</button>
     </div>

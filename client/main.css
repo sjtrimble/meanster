@@ -32,7 +32,12 @@ body {
     margin: auto;
 }
 
-.bidBox img {
+.winningBidInfo {
+    display: flex;
+    padding: 10px;
+}
+
+img {
     height: 100px;
     width: 100px;
 }
@@ -43,7 +48,7 @@ body {
     width: 30%;
 }
 
-.errorMessages {
+.errorMessage {
     color: red;
     font-weight: bold;
 }

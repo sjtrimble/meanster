@@ -1,3 +1,5 @@
+// NOT USING
+
 app.controller('resultsCtrl', function($scope, UsersFactory, BidsFactory, $routeParams, $location) {
     console.log("main controller loading");
 

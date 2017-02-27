@@ -26,6 +26,8 @@ app.controller('bidsCtrl', function($scope, UsersFactory, BidsFactory, $routePar
             // console.log($scope.bids);
 
             for (let x in $scope.products) {
+                $scope.products[x].bids = []
+                $scope.products[x].error = []
                 for (z in $scope.bids) {
                     if ($scope.products[x].name == $scope.bids[z].product) {
                         $scope.products[x].bids.push($scope.bids[z])
@@ -42,37 +44,45 @@ app.controller('bidsCtrl', function($scope, UsersFactory, BidsFactory, $routePar
         // console.log("just product: ", product)
         // console.log("just newBid: ", newBid)
 
-        if (product.bidAmount < $scope.product.bids[bids.length-1]) {
-            console.log("bid is smaller than last bid");
-        }
+        if (product.bids.length == 0 || product.bidAmount > product.bids[product.bids.length-1].amount) {
 
-        $scope.newBid.product = product.name
-        $scope.newBid.bidder = $scope.user.userLoggedIn;
-        $scope.newBid.amount = product.bidAmount
+            $scope.newBid.product = product.name
+            $scope.newBid.bidder = $scope.user.userLoggedIn;
+            $scope.newBid.amount = product.bidAmount
 
-        // console.log("updated newbid with info: ", newBid)
+            BidsFactory.makeBid($scope.newBid, function(data) {
+                $scope.newBid = data
+            });
 
-        BidsFactory.makeBid($scope.newBid, function(data) {
-            console.log("returned data from factory using bid creation: ", data);
-            $scope.newBid = data
-        });
-
-        product.bids.push($scope.newBid);
-        console.log("updated product bids to: ", product.bids)
-
-        product.bidAmount = undefined;
-        updateBids();
+            product.bids.push($scope.newBid);
+            product.bidAmount = undefined;
+            updateBids();
+        } else {
+            product.error = "Bid amount should be higher than the previous bid."
+            // $scope.product.error.push();
+            // console.log($scope.errorMessages);
+        };
     };
 
     $scope.endBid = function() {
-        console.log("bid ended");
-        $location.url('/result')
+        let missingBids = false;
+        for (let x in $scope.products) {
+            if ($scope.products[x].bids.length == 0) {
+                missingBids = true;
+                alert("Cannot end the bid. One product does not have any bids yet.");
+                break;
+            }
+        };
+        
+        if (!missingBids) {
+            $location.url('/result')
+        };
     }
 
     $scope.startBid = function() {
-        Bids.Factory.destroyBids(function(data) {
+        BidsFactory.destroyBids(function(data) {
             console.log("bids gone")
-            $scope.bids = {}
+            $scope.bids = {};
         });
         $location.url('/bids');
     };
