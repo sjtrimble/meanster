@@ -45,7 +45,6 @@ app.controller('bidsCtrl', function($scope, UsersFactory, BidsFactory, $routePar
 
     $scope.makeBid = function(product, newBid) {
 
-        product.error = []
         // console.log(product.error)
 
         if (product.bids.length == 0 || product.bidAmount > product.bids[product.bids.length-1].amount) {
@@ -61,14 +60,15 @@ app.controller('bidsCtrl', function($scope, UsersFactory, BidsFactory, $routePar
             product.bids.push($scope.newBid);
             product.bidAmount = undefined;
             updateBids();
-        } else if (product.bids.length == 0 || product.bidAmount < product.bids[product.bids.length-1].amount){
+        } else if (product.bids.length == 0 || product.bidAmount <= product.bids[product.bids.length-1].amount){
+            console.log("should be hitting not high enough")
             product.error = "Bid amount should be higher than the previous bid."
-            product.bidAmount = undefined;
             console.log("after - bid amount too low", product.error)
 
         } else if (product.bidAmount == "" || product.bidAmount == undefined) {
+            console.log("before - hit empty error", product.error)
             product.error = "Please enter a bid amount to submit a bid."
-            product.bidAmount = undefined;
+            console.log("after - hit empty error", product.error)
         }
     };
 
